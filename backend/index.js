@@ -20,7 +20,7 @@ mongoose
   .connect(mongoDBurl)
   .then(() => {
     console.log("Connection to database successfully done.");
-    app.listen(PORT, () => {
+    app.listen(process.env.PORT || PORT, () => {
       console.log("Backend server started at port:", process.env.PORT || PORT);
     });
   })
