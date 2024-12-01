@@ -21,7 +21,7 @@ mongoose
   .then(() => {
     console.log("Connection to database successfully done.");
     app.listen(PORT, () => {
-      console.log("Backend server started at port:", PORT);
+      console.log("Backend server started at port:", process.env.PORT || PORT);
     });
   })
   .catch((error) => {
