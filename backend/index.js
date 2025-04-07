@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://bookstore-frontend-3umc.onrender.com",
     methods: ["GET", "PUT", "POST", "DELETE"],
     allowedHeaders: ["Content-Type"],
   })
