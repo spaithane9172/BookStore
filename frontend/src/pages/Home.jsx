@@ -18,7 +18,9 @@ const Home = () => {
 
   const getAllBooks = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/books");
+      const response = await axios.get(
+        "https://bookstore-jafq.onrender.com/books"
+      );
       console.log(response);
       setBooks(response.data.data);
     } catch (error) {
@@ -27,7 +29,9 @@ const Home = () => {
   };
   const getBook = async (id) => {
     try {
-      const response = await axios.get("http://localhost:5000/books/" + id);
+      const response = await axios.get(
+        "https://bookstore-jafq.onrender.com/books/" + id
+      );
       setBook(response.data);
       console.log(response);
     } catch (error) {
@@ -36,7 +40,9 @@ const Home = () => {
   };
   const deleteBook = async (id) => {
     try {
-      const response = await axios.delete("http://localhost:5000/books/" + id);
+      const response = await axios.delete(
+        "https://bookstore-jafq.onrender.com/books/" + id
+      );
       setBook(response.data);
       getAllBooks();
       console.log(response);
@@ -47,7 +53,10 @@ const Home = () => {
   const addNewBook = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/books", book);
+      const response = await axios.post(
+        "https://bookstore-jafq.onrender.com/books",
+        book
+      );
       getAllBooks();
       setAddBookModal(false);
       setBook({
@@ -64,7 +73,10 @@ const Home = () => {
   const updateBook = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.put("http://localhost:5000/books", book);
+      const response = await axios.put(
+        "https://bookstore-jafq.onrender.com/books",
+        book
+      );
       getAllBooks();
       setUpdateBookModal(false);
       setBook({
@@ -85,7 +97,7 @@ const Home = () => {
       {addBookModal && (
         <div className="absolute flex justify-center w-full">
           <AddBookModal
-            formFields={["title", "auther", "publishYear"]}
+            formFields={["title", "auther", "publishYear", "aboutTheBook"]}
             book={book}
             setBook={setBook}
             submitButton={addNewBook}
@@ -97,7 +109,7 @@ const Home = () => {
       {updateBookModal && (
         <div className="absolute flex justify-center w-full">
           <AddBookModal
-            formFields={["title", "auther", "publishYear"]}
+            formFields={["title", "auther", "publishYear", "aboutTheBook"]}
             book={book}
             setBook={setBook}
             submitButton={updateBook}
