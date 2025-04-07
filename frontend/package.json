@@ -42,5 +42,6 @@
   },
   "devDependencies": {
     "tailwindcss": "^3.4.15"
-  }
+  },
+  "proxy": "https://bookstore-jafq.onrender.com"
 }
