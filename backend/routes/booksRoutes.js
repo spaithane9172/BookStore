@@ -1,6 +1,23 @@
 import express from "express";
 import { Book } from "../model/bookModel.js";
 const router = express.Router();
+
+router.get("/news/", async (req, res) => {
+  const { category = "general", page = 1, pageSize = 10 } = req.query;
+  console.log("object");
+  const apiKey = process.env.NEWS_API_KEY;
+
+  const url = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&page=${page}&pageSize=${pageSize}&apiKey=${apiKey}`;
+
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    res.json(data);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch news" });
+  }
+});
+
 router.post("/", async (request, response) => {
   try {
     if (
