@@ -8,8 +8,8 @@ const router = express.Router();
 
 router.get("/", async (req, res) => {
   const { category = "general", page = 1, pageSize = 10 } = req.query;
-  const apiKey = process.env.REACT_APP_NEWS_API_KEY;
-  const url = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${apiKey}&page=${page}&pageSize=${pageSize}`;
+  // const apiKey = process.env.REACT_APP_NEWS_API_KEY;
+  const url = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=85967f37713f44c18381204922365bb9&page=${page}&pageSize=${pageSize}`;
 
   try {
     const response = await fetch(url, {
