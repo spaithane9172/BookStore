@@ -1,6 +1,8 @@
 import express from "express";
 const router = express.Router();
 import { REACT_APP_NEWS_API_KEY } from "../config.js";
+import dotenv from "dotenv";
+dotenv.config();
 
 router.get("/", async (req, res) => {
   const { category = "general", page = 1, pageSize = 10 } = req.query;
