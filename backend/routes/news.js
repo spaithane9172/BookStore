@@ -5,8 +5,7 @@ import { REACT_APP_NEWS_API_KEY } from "../config.js";
 router.get("/", async (req, res) => {
   const { category = "general", page = 1, pageSize = 10 } = req.query;
   const apiKey = process.env.REACT_APP_NEWS_API_KEY || REACT_APP_NEWS_API_KEY;
-  const url = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&page=${page}&pageSize=${pageSize}&apiKey=${apiKey}`;
-
+  const url = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${apiKey}&page=${page}&pageSize=${pageSize}`;
   try {
     const response = await fetch(url);
     const data = await response.json();
