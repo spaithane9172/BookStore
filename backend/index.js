@@ -7,9 +7,20 @@ import cors from "cors";
 const app = express();
 
 app.use(express.json());
+const allowedOrigins = [
+  "https://bookstore-frontend-3umc.onrender.com",
+  "https://what-s-going.vercel.app/",
+];
+
 app.use(
   cors({
-    origin: "https://bookstore-frontend-3umc.onrender.com",
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     methods: ["GET", "PUT", "POST", "DELETE"],
     allowedHeaders: ["Content-Type"],
   })
