@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 const allowedOrigins = [
   "https://bookstore-frontend-3umc.onrender.com",
-  "https://what-s-going.vercel.app/",
+  "https://what-s-going.vercel.app",
 ];
 
 app.use(
